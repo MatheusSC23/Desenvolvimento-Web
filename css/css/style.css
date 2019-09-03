@@ -92,6 +92,14 @@ img.banner{
 	padding: 2%;
 }
 
+.secoes:first-child {
+	margin-left: 2%;
+}
+
+.secoes:last-child {
+	margin-right: 2%;
+}
+
 a{
 	text-decoration: none;
 }
@@ -110,11 +118,12 @@ a{
 }
 
 .texto{
-	margin-top: 10%;
+	margin-top: 15%;
 	margin-left: 2%;
 }
 
 .titulo{
+
 	padding-top: 10%;
 	border-bottom: 4px solid #FF9224; 
 	position:relative;
