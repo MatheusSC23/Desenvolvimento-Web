@@ -1,30 +1,33 @@
 body{
 	font-family: sans-serif;
 	margin:0;
-	padding:0;
+	padding:;
 }
 
 header.fixed-header{
 	position: fixed;
 	font-family: sans-serif;
 	color:white;
-	background-color: navy;
-	height: 55px;
+	background-color: #444;
 	width: 100%;
+	top:0;
+	z-index: 1;
 
 }
 
 .dropdown{
-	position: relative;
 	display: inline-block;
-	padding-top: 1.4%;
+	text-align: center;
+	color: white;
+	padding: 25px;
+	text-decoration: none;
 }
 
 
 
 .dropbtn{
 	text-decoration: none;
-	background-color: navy;
+	background-color: #444;
 	color: white;
 	padding: 16px;
 	font-size: 16px;
@@ -38,6 +41,7 @@ header.fixed-header{
 
 .dropdown-content {
   display: none;
+  text-align: left;
   position: absolute;
   background-color: white;
   min-width: 160px;
@@ -56,11 +60,80 @@ header.fixed-header{
   display: block;
 }
 
-.banner{
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 25px;
-	width:500px;
-	height:250px;
+img.banner{
+    margin-top: 9%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #222;
+    height: 35%;
+    width: 65%;
+}
+
+.centralizado{
+	margin-top: 8%;
+	display: flex;
+	text-align: center;
+	float:left;
+}
+
+.centralizado .secoes{
+	background-color: #303E53; 
+	text-align: center;
+	display:block;
+	color:white;
+	width: 35%;
+    height: 30%;
+	margin-left: 4%;
+	margin-right: 4%;
+    border-radius: 5%;
+	z-index: 0;
+	padding: 2%;
+}
+
+a{
+	text-decoration: none;
+}
+.botao{
+	text-decoration: none;
+	font-size: 14px;
+	background-color: white;
+    color: #A4F;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 13px;
+    width: 25%;
+    border-radius: 5px;
+    
+}
+
+.texto{
+	margin-top: 10%;
+	margin-left: 2%;
+}
+
+.titulo{
+	padding-top: 10%;
+	border-bottom: 4px solid #FF9224; 
+	position:relative;
+}
+
+#coordenacao {
+    position: relative;
+    float: right;
+    text-align: right;
+    margin-bottom: 10%;
+}
+
+footer{
+	position: fixed;
+	bottom: 0;
+	color:white;
+	padding: 10px;
+	background-color: #222;
+	width: 100%;
+	z-index: 1;
+
 }
