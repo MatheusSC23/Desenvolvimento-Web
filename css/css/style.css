@@ -1,7 +1,7 @@
 body{
 	font-family: sans-serif;
 	margin:0;
-	padding:;
+	padding:0;
 }
 
 header.fixed-header{
@@ -12,6 +12,7 @@ header.fixed-header{
 	width: 100%;
 	top:0;
 	z-index: 1;
+	min-width: 525px;
 
 }
 
@@ -103,6 +104,7 @@ img.banner{
 a{
 	text-decoration: none;
 }
+
 .botao{
 	text-decoration: none;
 	font-size: 14px;
@@ -120,6 +122,7 @@ a{
 .texto{
 	margin-top: 15%;
 	margin-left: 2%;
+	margin-right: 2%;
 }
 
 .titulo{
