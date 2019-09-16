@@ -1,3 +1,6 @@
+label {
+	font-weight: bold;
+}
 #formulario th{
 	background-color: #4191e1f2;
 	color:white;
@@ -5,4 +8,8 @@
 
 #formulario td,#formulario th,#formulario tr{
 	border: 1px solid #4191e1f2;
+}
+
+.info thead{
+	background-color: #eee;
 }

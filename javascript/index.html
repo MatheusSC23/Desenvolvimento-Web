@@ -11,71 +11,98 @@
 
     <title>Disciplina de Desenvolvimento Web</title>
   </head>
-  <body>
+  <body onload="changeContent()">
+
   	<div class="container"><h1>Sistema de Controle de alunos</h1></div>
 
-  	<div class="container" id="formulario">
-  		<table class="table table-bordered ">
+  	<div class="container">
+  		
+  		<table class="table table-bordered " id="formulario">
   			<tr>
 		    	<th scope="col">Fomulário dos alunos</th>
 		    </tr>
-		    	<td>
-		    		<form>
+	    	<td>
+	    		<form action="#">
 
-		    			<div class="row">
-							<div class="form-group col-md-5">
-							<label>Matrícula</label>
-							<input type="email" class="form-control" id="matricula" placeholder="Adicione a matrícula do aluno" required>
-							</div>
-
-							<div class="form-group col-md-7">
-							<label>Nome</label>
-							<input type="text" class="form-control" id="nome" placeholder="Adicione o nome do aluno" required>
-							</div>
+	    			<div class="row">
+						<div class="form-group col-md-5">
+						<label>Matrícula</label>
+						<input type="text" class="form-control" id="matricula" placeholder="Adicione a matrícula do aluno" required>
 						</div>
 
-						<div class="row">
-							<div class="form-group col-md-5">
-							<label>Data de Nascimento</label>
-							<input type="date" class="form-control" id="matricula" placeholder="Adicione a matrícula do aluno" required>
-							</div>
+						<div class="form-group col-md-7">
+						<label>Nome</label>
+						<input type="text" class="form-control" id="nome" placeholder="Adicione o nome do aluno" required>
+						</div>
+					</div>
 
-							<div class="form-group col-md-7">
-							<label>Email</label>
-							<input type="email" class="form-control" id="email" placeholder="Adicione o email do aluno" required>
-							</div>
+					<div class="row">
+						<div class="form-group col-md-5">
+						<label>Data de Nascimento</label>
+						<input type="date" class="form-control" id="data" placeholder="Adicione a matrícula do aluno" required>
 						</div>
 
-						<div class="row">
-							<div class="form-group col-md-1">
+						<div class="form-group col-md-7">
+						<label>Email</label>
+						<input type="email" class="form-control" id="email" placeholder="Adicione o email do aluno" required>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-1">
 							<label>DDD</label>
 							<input type="text" class="form-control" id="ddd" placeholder="DDD" required>
-							</div>
+						</div>
 
-							<div class="form-group col-md-5">
+						<div class="form-group col-md-5">
 							<label>Telefone</label>
 							<input type="text" class="form-control" id="telefone" placeholder="Adicione o telefone do aluno" required>
-							</div>
+						</div>
 
-							<div class="form-group">
+						<div class="form-group">
 							<label>Operadora</label><br>
-							<select name="select">
+							<select name="operadora">
 							  <option>Oi</option> 
 							  <option>Claro</option>
 							  <option>Tim</option>
 							  <option>Vivo</option>
 							</select>
-							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-5">
+							<label>Campus</label><br>
+							<select name="campus" id="campus" onchange="changeContent()">
+							  <option selected>Pici</option> 
+							  <option>Benfica</option>
+							  <option>Porangabussu</option>
+							</select>
 						</div>
 
-					  
+						<div class="form-group col-md-7">
+							<label>Cursos</label><br>
+							<select name="cursos" id="cursos">
+							</select>
+						</div>
+					</div>
+					<button class="btn btn-primary" onclick="add()">Enviar</button>
+				</form>
+	    	</td>
+  		</table>
 
-					  <button type="submit" class="btn btn-primary">Enviar</button>
-					</form>
-		    	</td>
-		    <tr>
-		    	
-		    </tr>
+  		<table class="table info table-bordered" id="info">
+  			<thead id="cabecalho">
+		    	<th scope="col">Matrícula</th>
+		    	<th scope="col">Nome</th>
+		    	<th scope="col">Ações</th>
+		    </thead> 
+
+		    <tbody id="body">
+		    	<tr id="padrao">
+		    		<td colspan="3" name="def">Sem alunos registrados</td>
+		    	</tr>
+		    </tbody>
   		</table>
   	</div>
 
@@ -84,5 +111,6 @@
     <script src="jquery.min.js"></script>
     <script src="pooper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
   </body>
 </html>
