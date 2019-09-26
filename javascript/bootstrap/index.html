@@ -13,7 +13,36 @@
   </head>
   <body onload="changeContent()">
 
-  	<div class="container"><h1>Sistema de Controle de alunos</h1></div>
+  	<!-- Modal Dados inválidos-->
+	<div id="userRegistred" class="Popup">
+
+	  <!-- Modal content -->
+	  <div class="Popup-content">
+	    <span class="close close_userRegistred">&times;</span>
+	    <p>Usuário já cadastrado.</p>
+	  </div>
+
+	</div>
+
+  	<!-- Modal Dados inválidos-->
+	<div id="emptyField" class="Popup">
+
+	  <!-- Modal content -->
+	  <div class="Popup-content">
+	    <span class="close close_emptyField">&times;</span>
+	    <p>Preencha todos os campos.</p>
+	  </div>
+
+	</div>
+
+  	<div class="container">
+  		<div class="row">
+	  		<h1 class="col-sm-9">Sistema de Controle de alunos</h1>
+	  		<button type="button" class="btn btn-sm col-sm-2 autor" data-toggle="modal" data-target="#autorModal">Autor</button>
+
+
+		</div>
+  	</div>
 
   	<div class="container">
   		
@@ -22,7 +51,7 @@
 		    	<th scope="col">Fomulário dos alunos</th>
 		    </tr>
 	    	<td>
-	    		<form action="#">
+	    		<form action="#" id="formObj">
 
 	    			<div class="row">
 						<div class="form-group col-md-5">
@@ -86,29 +115,51 @@
 							</select>
 						</div>
 					</div>
+
 					<button type="submit" class="btn btn-primary" onclick="add();return false;">Enviar</button>
+					<button type="button" class="btn btn-primary" onclick="clearForm();return false;">Limpar</button>
 
-					<!-- Button trigger modal -->
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-				  Launch demo modal
-				</button>
 
-				<!-- Modal -->
-				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
+				<!--Modal Remoção-->
+				<div class="modal fade" id="remocao" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  	<div class="modal-dialog" role="document">
+				  <div class="modal-content">
 				      <div class="modal-header">
-				        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				        <h5 class="modal-title" id="exampleModalLabel">Solicitação de Confirmação</h5>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
 				      </div>
 				      <div class="modal-body">
-				        ...
+				        Confirma Exclusão
 				      </div>
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				        <button type="button" class="btn btn-primary">Save changes</button>
+				        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="deleteUser()">Ok</button>
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="resetVar()">Cancelar</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>			
+
+				<!-- Modal Autor-->
+				<div class="modal fade" id="autorModal" tabindex="-1" role="dialog" aria-labelledby="autorModal" aria-hidden="true">
+				  <div class="modal-dialog modal-lg" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title">Autor</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+
+				      	<img class ="fotoAutor" src="img/padrao.png">
+				      	<div class = "textAutor">
+				        	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a faucibus sapien. Pellentesque sagittis ipsum fermentum lacus consequat hendrerit viverra eu mi. Proin turpis lacus, vestibulum tristique lobortis in, pretium at tellus. Phasellus laoreet, odio at faucibus finibus, enim libero egestas magna, non dapibus enim augue ut nisi. Nunc sed quam quis nibh aliquet euismod. Nunc feugiat tempus lorem, ut accumsan nunc ullamcorper eu. Proin lobortis volutpat urna, eu tempor dui dictum sed. Aenean posuere dictum est, et pulvinar diam. Integer venenatis tellus eu porttitor pellentesque. Aliquam ut enim finibus, luctus quam et, sollicitudin enim. Aenean et sem laoreet, finibus tellus dignissim, semper nisl. Duis venenatis massa sed venenatis rhoncus. Etiam elementum a eros non efficitur. Maecenas eu lectus nec ipsum sodales finibus.</p>
+				        </div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
 				      </div>
 				    </div>
 				  </div>
