@@ -1,11 +1,3 @@
-Vue.component( 'table-form' , {
-			template: "#table-form" ,
-});
-
-Vue.component( 'table-users' , {
-			template: "#table-users" ,
-});
-
 var app = new Vue({
 	el:'#app',
 	mounted:function(){
@@ -19,12 +11,26 @@ var app = new Vue({
 		email:null,
 		ddd:null,
 		tel:null,
-		operadora:null
+		operadora:null,
+		campus:"Pici",
+		cursos:null,
+		cursosObj:{
+			"Pici": ["Computação", "Matemática" , "Geologia"],
+	 		"Benfica" : ["Letras", "Filosofia" , "Direito"],
+	 		"Porangabussu" : ["Medicina", "Odontologia" , "Farmácia"]
+		}
 	},
 	methods:{
 		checkForm: function(e){
 			console.log(this.operadora);
 			e.preventDefault();
+		},
+		changeContent: function(){
+			console.log("Chamou func");
+			for(i in this.cursosObj){
+				console.log(i);
+			}
+			
 		}
 	}
 })
