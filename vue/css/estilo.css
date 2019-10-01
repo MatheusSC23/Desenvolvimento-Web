@@ -1,0 +1,8 @@
+.tableform th{
+	background-color: #4191e1f2;
+	color:white;
+}
+
+.tableform td,.tableform th,.tableform tr{
+	border: 1px solid #4191e1f2;
+}

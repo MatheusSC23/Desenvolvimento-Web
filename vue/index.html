@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Desenvolvimento Web</title>
+	<script src="js/vue.js "></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+	<div class="container">
+		<div id="app">
+			<h1>{{title}}</h1>
+			<table class="table tableform">
+			<thead>
+				<tr>
+					<th scope="col">Formulário</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<td colspan="2">
+					<form action="#" @submit="checkForm">
+
+	    			<div class="row">
+						<div class="form-group col-md-5">
+						<label>Matrícula</label>
+						<input type="text" class="form-control" id="matricula" placeholder="Adicione a matrícula do aluno"
+						v-model="matricula" 
+						maxlength="6"
+						minlength="6" 
+						required>
+						</div>
+
+						<div class="form-group col-md-7">
+						<label>Nome</label>
+						<input type="text" class="form-control" id="nome" placeholder="Adicione o nome do aluno" 
+						v-model="nome"
+						required>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-5">
+						<label>Data de Nascimento</label>
+						<input type="date" class="form-control" id="data" placeholder="Adicione a matrícula do aluno"
+						v-model="dataNasc"
+						 required>
+						</div>
+
+						<div class="form-group col-md-7">
+						<label>Email</label>
+						<input type="email" class="form-control" id="email" placeholder="Adicione o email do aluno"
+						v-model="email"
+						required>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-1">
+							<label>DDD</label>
+							<input type="text" class="form-control" id="ddd" placeholder="DDD"
+							v-model="ddd"
+							required>
+						</div>
+
+						<div class="form-group col-md-5">
+							<label>Telefone</label>
+							<input type="text" class="form-control" id="telefone" placeholder="Adicione o telefone do aluno"
+							v-model="tel"
+							required>
+						</div>
+
+						<div class="form-group">
+							<label>Operadora</label><br>
+							<select name="operadora" v-model="operadora">
+							  <option>Oi</option> 
+							  <option>Claro</option>
+							  <option>Tim</option>
+							  <option>Vivo</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-md-5">
+							<label>Campus</label><br>
+							<select name="campus" id="campus" onchange="changeContent()">
+							  <option selected>Pici</option> 
+							  <option>Benfica</option>
+							  <option>Porangabussu</option>
+							</select>
+						</div>
+
+						<div class="form-group col-md-7">
+							<label>Cursos</label><br>
+							<select name="cursos" id="cursos">
+							</select>
+						</div>
+					</div>
+
+					<button type="submit" class="btn btn-primary">Enviar</button>
+					<button type="button" class="btn btn-primary" onclick="clearForm();return false;">Limpar</button>
+	    		
+			</tbody>
+		</table>
+			
+		</div>
+	</div>
+
+	<script src="js/script.js"></script>
+</body>
+</html>
