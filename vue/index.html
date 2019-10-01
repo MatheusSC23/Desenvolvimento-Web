@@ -85,7 +85,7 @@
 					<div class="row">
 						<div class="form-group col-md-5">
 							<label>Campus</label><br>
-							<select name="campus" id="campus" v-model="campus" @change="changeContent">
+							<select name="campus" id="campus" v-model="campus">
 							  <option selected>Pici</option> 
 							  <option>Benfica</option>
 							  <option>Porangabussu</option>
@@ -95,6 +95,7 @@
 						<div class="form-group col-md-7">
 							<label>Cursos</label><br>
 							<select name="cursos" v-model="cursos">
+								<option v-for="curso in cursosObj[campus]">{{curso}}</option>
 							</select>
 						</div>
 					</div>

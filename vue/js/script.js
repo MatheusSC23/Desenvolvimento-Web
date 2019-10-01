@@ -13,7 +13,7 @@ var app = new Vue({
 		tel:null,
 		operadora:null,
 		campus:"Pici",
-		cursos:null,
+		cursos:"",
 		cursosObj:{
 			"Pici": ["Computação", "Matemática" , "Geologia"],
 	 		"Benfica" : ["Letras", "Filosofia" , "Direito"],
@@ -25,12 +25,6 @@ var app = new Vue({
 			console.log(this.operadora);
 			e.preventDefault();
 		},
-		changeContent: function(){
-			console.log("Chamou func");
-			for(i in this.cursosObj){
-				console.log(i);
-			}
-			
-		}
+		
 	}
 })
