@@ -20,9 +20,20 @@ var app = new Vue({
 	 		"Porangabussu" : ["Medicina", "Odontologia" , "Farmácia"]
 		}
 	},
+	computed:{
+		validateForm(){
+			var matrIsValid = typeof matricula === 'number'; 
+			var nameIsValid = !!nome;
+			var dateIsValid = !!dataNasc;
+			var email = !!email;
+			
+		}
+
+	},
 	methods:{
 		checkForm: function(e){
-			console.log(this.operadora);
+			var form = document.getElementById('validate-form');
+			console.log(form.checkValidity());
 			e.preventDefault();
 		},
 		
