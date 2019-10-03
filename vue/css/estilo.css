@@ -1,8 +1,77 @@
-.tableform th{
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: table;
+  transition: opacity .3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width: 300px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  transition: all .3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.tableform thead td,.tableform thead th,.tableform thead tr{
 	background-color: #4191e1f2;
 	color:white;
+	font-size: 20px;
 }
 
 .tableform td,.tableform th,.tableform tr{
 	border: 1px solid #4191e1f2;
+}
+
+.info thead{
+	background-color: #eee;
+}
+
+.btn-circle{
+	float: right;
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+    border: 1px solid black;
+    color: black;
+    background-color: #92bde8;
+    box-shadow: 1px 1px;
+}
+
+.fotoAutor{
+	float:left;
+	border-radius: 100%;
+	margin-left: 1%;
+
+}
+
+.textAutor{
+	overflow: auto;
+	margin-left: 25%;
 }

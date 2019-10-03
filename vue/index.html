@@ -4,9 +4,11 @@
 	<meta charset="utf-8">
 	<title>Desenvolvimento Web</title>
 	<script src="js/vue.js "></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/estilo.css">
 </head>
+
+
 <body>
 	<div class="container">
 		<div id="app">
@@ -14,13 +16,14 @@
 			<table class="table tableform">
 			<thead>
 				<tr>
-					<th scope="col">Formulário</th>
+					<th scope="col">Fomulário dos alunos</th>
+					<th scope="col"><button type="button" class="btn btn-circle autor" data-toggle="modal" data-target="#autorModal">?</button></th>
 				</tr>
 			</thead>
 
 			<tbody>
 				<td colspan="2">
-					<form action="#" @submit="checkForm" id="validate-form">
+					<form action="#" v-on:submit.prevent="checkForm" id="validate-form">
 
 	    			<div class="row">
 						<div class="form-group col-md-5">
@@ -60,14 +63,14 @@
 						<div class="form-group col-md-1">
 							<label>DDD</label>
 							<input type="text" class="form-control" id="ddd" placeholder="DDD"
-							v-model="ddd"
+							v-model.number="ddd"
 							required>
 						</div>
 
 						<div class="form-group col-md-5">
 							<label>Telefone</label>
 							<input type="text" class="form-control" id="telefone" placeholder="Adicione o telefone do aluno"
-							v-model="tel"
+							v-model.number="tel"
 							required>
 						</div>
 
@@ -85,7 +88,7 @@
 					<div class="row">
 						<div class="form-group col-md-5">
 							<label>Campus</label><br>
-							<select name="campus" id="campus" v-model="campus">
+							<select name="campus" id="campus" v-model="campus" @change="cleanCurso">
 							  <option selected>Pici</option> 
 							  <option>Benfica</option>
 							  <option>Porangabussu</option>
@@ -101,14 +104,70 @@
 					</div>
 
 					<button type="submit" class="btn btn-primary">Enviar</button>
-					<button type="button" class="btn btn-primary" onclick="clearForm();return false;">Limpar</button>
+					<button type="button" class="btn btn-primary" v-on:click="cleanForm">Limpar</button>
+				</form>
 	    		
 			</tbody>
-		</table>
-			
-		</div>
+		 </table>	
+
+	<table class="table info table-bordered">
+		<thead id="cabecalho">
+			<th scope="col">Matrícula</th>
+			<th scope="col">Nome</th>
+			<th scope="col">Ações</th>
+		</thead> 
+
+		<tbody id="body">
+			<tr id="padrao" v-if="users.length === 0">
+				<td colspan="3" name="def" >Sem alunos registrados</td>
+			</tr>
+			<tr v-for="user in currentUsers" v-bind:id=user.matricula v-else>
+				<td scope="col">{{user.matricula}}</td>
+				<td scope="col">{{user.nome}}</td>
+				<td><button type="button" class="btn btn-danger btn-sm" @click="showModal = true; idButton = user.matricula">Remover</button></td>
+			</tr>
+			<tr v-if="users.length > 0" id='navPage'>
+				<td colspan="3" align="center" v-if="(users.length - 1) - (currentPage+4) >= 0 || currentPage >0">
+					<button type="button" class="btn btn-danger btn-sm" @click="prev" v-if="currentPage >0">Anterior</button>
+					<button type="button" class="btn btn-danger btn-sm" @click="next" v-if="(users.length - 1) - (currentPage+4) >= 0">Próximo</button>
+				</td>
+			</tr>
+		</tbody>
+  	</table>
+	<modal v-if="showModal" @close="showModal = false" v-on:remove = "removeUser"></modal>
+	<warning v-if="showWarning" @close="showWarning = false"></modal>
+
+	</div>
 	</div>
 
+	<!-- Modal Autor-->
+				<div class="modal fade" id="autorModal" tabindex="-1" role="dialog" aria-labelledby="autorModal" aria-hidden="true">
+				  <div class="modal-dialog modal-lg" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title">Autor</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+
+				      	<img class ="fotoAutor" src="img/padrao.png">
+				      	<div class = "textAutor">
+				        	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a faucibus sapien. Pellentesque sagittis ipsum fermentum lacus consequat hendrerit viverra eu mi. Proin turpis lacus, vestibulum tristique lobortis in, pretium at tellus. Phasellus laoreet, odio at faucibus finibus, enim libero egestas magna, non dapibus enim augue ut nisi. Nunc sed quam quis nibh aliquet euismod. Nunc feugiat tempus lorem, ut accumsan nunc ullamcorper eu. Proin lobortis volutpat urna, eu tempor dui dictum sed. Aenean posuere dictum est, et pulvinar diam. Integer venenatis tellus eu porttitor pellentesque. Aliquam ut enim finibus, luctus quam et, sollicitudin enim. Aenean et sem laoreet, finibus tellus dignissim, semper nisl. Duis venenatis massa sed venenatis rhoncus. Etiam elementum a eros non efficitur. Maecenas eu lectus nec ipsum sodales finibus.</p>
+				        </div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+
+	
+	<script src="js/jquery.min.js"></script>
+    <script src="js/pooper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 	<script src="js/script.js"></script>
 </body>
 </html>
