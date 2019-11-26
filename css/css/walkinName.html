@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Texto Andando</title>
+</head>
+<body>
+
+	<input type="text" name="name" id="name">
+	<button type="button" id="exec">Execute</button>
+	<button type="button" id="stop">Stop</button>
+	<input type="text" name="resp" id="resp">
+
+	<script>
+		var time;
+		var name;
+		function core(){
+			name = name.substring(1).concat(name[0]);
+			let res = document.getElementById("resp");
+			res.value = name;
+		}
+
+		function walk(){
+			name = document.getElementById("name").value;
+			time = setInterval(core,100);
+		}
+
+		function cancel() {
+			clearInterval(time);
+		}
+
+		var botao = document.getElementById("exec");
+		botao.onclick = walk
+		var stop = document.getElementById("stop");
+		stop.onclick = cancel
+	</script>
+</body>
+</html>

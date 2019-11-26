@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<h1>Cadastrar Aluno</h1>
+	<form action="/api/alunos" method="POST">
+		Nome: <input type="text" name="nome">
+		Matricula: <input type="text" name="matricula">
+		Campus: <input type="text" name="campus">
+		<br>
+		<input type="submit">		
+	</form>
+
+	<h1>Atualizar Aluno</h1>
+	<form action="/api/alunos" method="PUT">
+		Nome: <input type="text" name="nome">
+		Matricula: <input type="text" name="matricula">
+		Campus: <input type="text" name="campus">
+		<br>
+		<input type="submit">		
+	</form>
+
+	<h1>Cadastrar Campus</h1>
+	<form action="/api/campi" method="POST">
+		Código: <input type="text" name="codigo">
+		Nome: <input type="text" name="nome">
+		Cursos: <input type="text" name="cursos">
+		<br>
+		<input type="submit">		
+	</form>
+</body>
+</html>

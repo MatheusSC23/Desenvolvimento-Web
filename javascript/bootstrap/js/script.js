@@ -26,9 +26,11 @@ function changeContent() {
 }
 
 
+var form = document.getElementById("formObj");
 
-function add() {
-	var form = document.getElementById("formObj");
+form.addEventListener("submit", add);
+
+function add(event) {
 	if(form.checkValidity()){
 
 	 	if(!populated){
@@ -60,9 +62,7 @@ function add() {
 	 		emptyField("userRegistred");
 	 	}
 	}
-	else{
-		emptyField("emptyField");
-	}
+	event.preventDefault();
 }
 
 function comparador(a,b) {
@@ -108,6 +108,7 @@ function createButton(matr){
 function clearForm() {
 	var form = document.getElementById("formObj");
 	form.reset();
+	changeContent();
 }
 
 

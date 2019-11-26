@@ -31,7 +31,8 @@
 						<input type="text" class="form-control" id="matricula" placeholder="Adicione a matrícula do aluno"
 						v-model.number="matricula" 
 						maxlength="6"
-						minlength="6" 
+						minlength="6"
+						:readonly="editMode" 
 						required>
 						</div>
 
@@ -103,7 +104,9 @@
 						</div>
 					</div>
 
-					<button type="submit" class="btn btn-primary">Enviar</button>
+					<button type="submit" class="btn btn-primary" v-if="editMode === false">Enviar</button>
+					<button type="submit" class="btn btn-primary" v-else>Salvar Alterações</button>
+					<button type="submit" class="btn btn-primary" v-if="editMode === true" @click="cancelEdit">Cancelar</button>
 					<button type="button" class="btn btn-primary" v-on:click="cleanForm">Limpar</button>
 				</form>
 	    		
@@ -124,7 +127,8 @@
 			<tr v-for="user in currentUsers" v-bind:id=user.matricula v-else>
 				<td scope="col">{{user.matricula}}</td>
 				<td scope="col">{{user.nome}}</td>
-				<td><button type="button" class="btn btn-danger btn-sm" @click="showModal = true; idButton = user.matricula">Remover</button></td>
+				<td><button type="button" class="btn btn-danger btn-sm" @click="showModal = true; idButton = user.matricula" :disabled="editMode">Remover</button>
+				<button type="button" v-bind:value=user.matricula class="btn btn-warning btn-sm" @click="loadData" :disabled="editMode">Editar Dados</button></td>
 			</tr>
 			<tr v-if="users.length > 0" id='navPage'>
 				<td colspan="3" align="center" v-if="(users.length - 1) - (currentPage+4) >= 0 || currentPage >0">

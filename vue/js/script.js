@@ -64,6 +64,7 @@ var app = new Vue({
 	el:'#app',
 	props:['user'],
 	data:{
+		editMode:false,
 		currentPage:0,
 		currentUsers:[],
 		idButton:-1,
@@ -105,7 +106,7 @@ var app = new Vue({
 					this.matStored.sort((a,b)=>{
 						return a-b;
 					});
-					user = {
+					var user = {
 						matricula:this.matricula,
 						nome:this.nome,
 						dataNasc:this.dataNasc,
@@ -120,11 +121,21 @@ var app = new Vue({
 					this.sortUsers();
 					this.refreshPage();					
 				}
+				else if(this.editMode){
+					this.users[this.idButton].nome = this.nome;
+					this.users[this.idButton].dataNasc = this.dataNasc;
+					this.users[this.idButton].email = this.email;
+					this.users[this.idButton].ddd = this.ddd;
+					this.users[this.idButton].tel = this.tel;
+					this.users[this.idButton].operadora = this.operadora;
+					this.users[this.idButton].campus = this.campus;
+					this.users[this.idButton].cursos = this.cursos;
+					this.editMode = false;
+				}
 				else{
 					this.showWarning = true;
 				}
 			}
-			
 		},
 
 		next: function(){
@@ -138,6 +149,10 @@ var app = new Vue({
 		},
 
 		refreshPage: function(){
+			if(this.currentPage > this.users.length-1){
+				this.currentPage -= 4;
+				this.refreshPage();
+			}
 			this.currentUsers = [];
 			var pos = this.currentPage;
 			while(pos<this.currentPage+4  && pos<this.users.length){
@@ -163,8 +178,10 @@ var app = new Vue({
 		},
 
 		cleanForm: function(e){
-			e.target.parentElement.reset();
-			this.matricula = null;
+			if(this.editMode === false){
+				e.target.parentElement.reset();
+				this.matricula = null;
+			}
 			this.nome = null;
 			this.dataNasc = null;
 			this.email = null;
@@ -173,6 +190,7 @@ var app = new Vue({
 			this.operadora = null;
 			this.campus = "Pici";
 			this.cursos = "";
+
 		},
 
 		sortUsers: function(){
@@ -181,6 +199,31 @@ var app = new Vue({
 			}
 			this.users.sort(compare);
 		},
+
+		loadData:function(e){
+			var mat = parseInt(e.target.value,10);
+			var index = this.matStored.indexOf(mat);
+			var cache = this.users[index];
+			this.idButton = index;
+
+			
+			this.matricula = cache.matricula;
+			this.nome = cache.nome;
+			this.dataNasc = cache.dataNasc;
+			this.email = cache.email;
+			this.ddd = cache.ddd;
+			this.tel = cache.tel;
+			this.operadora = cache.operadora;
+			this.campus = cache.campus;
+			this.cursos = cache.cursos;
+			this.editMode = true;
+
+		},
+
+		cancelEdit: function(e){
+			this.editMode = false;
+			this.cleanForm(e);
+		}
 		
 	}
 })

@@ -16,7 +16,7 @@ label {
 
 .fotoAutor{
 	float:left;
-	border-radius: 90%;
+	border-radius: 100%;
 	margin-left: 1%;
 
 }
@@ -46,10 +46,11 @@ label {
 .Popup-content {
   background-color: #fefefe;
   margin: auto;
+  font-size: 25px;
   text-align: center;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 40%;
   border-radius: 25px;
 }
 
@@ -65,4 +66,21 @@ label {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+
+.btn-circle{
+	float: right;
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+    border: 1px solid black;
+    color: black;
+    background-color: #92bde8;
+    box-shadow: 1px 1px;
 }
